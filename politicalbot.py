@@ -65,7 +65,7 @@ def language_bot2(message):
         start_message
     else:
         bot.send_message(message.chat.id, eval(f'lang.wrnglanginput_{choosenlang}'))
-        bot.register_next_step_handler(message, language_bot1)
+        bot.register_next_step_handler(message, language_bot2)
 
 
 @bot.message_handler(commands=['help'])
