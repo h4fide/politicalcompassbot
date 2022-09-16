@@ -6,9 +6,10 @@ import politicwebspost as pwp
 import language as lang
 bot = telebot.TeleBot(token)
 
-choosenlanglist = ['en']
+choosenlanglist = []
 choosenlang = choosenlanglist[0]
 
+choosenlanglist.append('en')
 
 def_questions = eval(f'lang.def_questions_{choosenlang}')
 questionlang = eval(f'lang.question_{choosenlang}')
@@ -56,13 +57,14 @@ def language_bot2(message):
         choosenlanglist.clear()
         choosenlanglist.append(choosenlang)
         bot.send_message(message.chat.id, 'Language changed to English')
-        start_message
+        start_message(message)
     elif message.text == 'Arabic':
         choosenlang = 'ar'
         choosenlanglist.clear()
         choosenlanglist.append(choosenlang)
         bot.send_message(message.chat.id, 'تم تغيير اللغة الى العربية')
-        start_message
+        start_message(message)
+
     else:
         bot.send_message(message.chat.id, eval(f'lang.wrnglanginput_{choosenlang}'))
         bot.register_next_step_handler(message, language_bot2)
@@ -746,10 +748,11 @@ def finish(message):
         url = f'https://www.politicalcompass.org/analysis2?{pcresults}'
         image = f'https://www.politicalcompass.org/chart?{pcresults}'
         pdf = f'https://www.politicalcompass.org/pdfcertificate?pname={name}&{pcresults}'
+        linkmsg = eval(f'lang.link_msg_{choosenlang}')
         bot.delete_message(message.chat.id, wait.message_id)
         bot.send_message(message.chat.id, eval(f'lang.urpc_msg_{choosenlang}'))
         bot.send_message(message.chat.id, f'{elr} \n{pcresults.split("ec=")[1].split("&")[0]}\n{sla} \n{pcresults.split("soc=")[1]}')
         bot.send_photo(message.chat.id, image, caption=eval(f'lang.chart_msg_{choosenlang}')) 
         bot.send_document(message.chat.id, pdf , caption=eval(f'lang.pdf_msg_{choosenlang}'))
-        bot.send_message(message.chat.id, url, eval(f'lang.link_msg_{choosenlang}'))
+        bot.send_message(message.chat.id, f'{url}\n{linkmsg}')
         bot.send_message(message.chat.id, eval(f'lang.tnks_msg_{choosenlang}'), reply_markup=markup)
