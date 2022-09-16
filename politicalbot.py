@@ -117,7 +117,7 @@ def start_message(message):
     answers.clear()
     bot.reply_to(message, """
     Ladies and gentlemen, attack helicopters, welcome to a political orientation that will force you to abandon social constructs and find your true self! A journey in the right direction begins with the right compass""")
-    markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True, row_width=1)
+    markup = types.ReplyKeyboardMarkup(one_time_keyboard=False)
     markup.add('Let\'s go!')
     bot.send_message(message.chat.id, "Are you ready?", reply_markup=markup)
     bot.register_next_step_handler(message, question1)
@@ -130,17 +130,20 @@ def messagess(message):
         bot.reply_to(message, 'Please, use command /help')
 
 def question1(message):
-    bot.send_message(message.chat.id, 'Cancel your journey by clicking /cancel')
-    bot.send_message(message.chat.id, 'Part 1')
-    bot.send_message(message.chat.id, f'Question 1:\n{def_questions[1]}', reply_markup=rkm())
-    bot.register_next_step_handler(message, question2)
+    if message.text == '/cancel':
+        cancel_message(message)
+    else:    
+        bot.send_message(message.chat.id, 'Cancel your journey by clicking /cancel')
+        bot.send_message(message.chat.id, 'Part 1')
+        bot.send_message(message.chat.id, f'Question 1:\n{def_questions[1]}', reply_markup=rkm())
+        bot.register_next_step_handler(message, question2)
     
 def question2(message):
     #bot.send_message(message.chat.id, 'Your answer: ' + message.text)
-    bot.send_message(message.chat.id, f'Question 2:\n{def_questions[2]}', reply_markup=rkm())
     if message.text == '/cancel':
         cancel_message(message)
     else:
+        bot.send_message(message.chat.id, f'Question 2:\n{def_questions[2]}', reply_markup=rkm())
         if catn(message.text) == 'error':
             bot.send_message(message.chat.id, 'Please, choose one of the options')
             bot.register_next_step_handler(message, question2)
@@ -150,10 +153,10 @@ def question2(message):
 
 def question3(message):
     #bot.send_message(message.chat.id, 'Your answer: ' + message.text)
-    bot.send_message(message.chat.id, f'Question 3:\n{def_questions[3]}', reply_markup=rkm())
     if message.text == '/cancel':
         cancel_message(message)
     else:
+        bot.send_message(message.chat.id, f'Question 3:\n{def_questions[3]}', reply_markup=rkm())
         if catn(message.text) == 'error':
             bot.send_message(message.chat.id, 'Please, choose one of the options')
             bot.register_next_step_handler(message, question3)
