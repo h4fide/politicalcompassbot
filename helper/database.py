@@ -71,6 +71,3 @@ def check_reslt(userid):
         return False
     else:
         return True
-
-pcresults = 'ec=0.0&soc=4.36'
-insert_result(897588700, pcresults)
