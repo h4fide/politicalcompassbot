@@ -97,6 +97,25 @@ def change_to_en(call: types.CallbackQuery):
     bot.delete_message(call.message.chat.id, call.message.message_id)
     rebuild_buttons(call.message.chat.id)
 
+    
+@bot.message_handler(commands=['myresult'])
+def myresult_c(message):
+    my_resultes(message)
+
+@bot.message_handler(commands=['rename'])
+def rename_c(message):
+    if db.check_reslt(message.from_user.id) == False:
+        bot.send_message(message.chat.id, eval(f'lang.noresults_msg_{choosenlang}'))
+    else:
+        bot.send_message(message.chat.id, eval(f'lang.rename_msg_{choosenlang}'))
+        bot.register_next_step_handler(message, rename)
+def rename(message):
+    name = message.text.replace(' ', '+')
+    pcresults = db.get_result(message.from_user.id)
+    pdf = f'https://www.politicalcompass.org/pdfcertificate?pname={name}&{pcresults}'
+    bot.send_document(message.chat.id, pdf , caption=eval(f'lang.pdf_msg_{choosenlang}'))
+
+
 @bot.message_handler(commands=['help'])
 def help_message(message):
     global choosenlang
@@ -852,21 +871,4 @@ def my_resultes(message):
         bot.send_photo(message.chat.id, image, caption=eval(f'lang.chart_msg_{choosenlang}')) 
         bot.send_document(message.chat.id, pdf , caption=eval(f'lang.pdf_msg_{choosenlang}'))
         bot.send_message(message.chat.id, f'{url}\n{linkmsg}')
-
-@bot.message_handler(commands=['myresult'])
-def myresult_c(message):
-    my_resultes(message)
-
-@bot.message_handler(commands=['rename'])
-def rename_c(message):
-    if db.check_reslt(message.from_user.id) == False:
-        bot.send_message(message.chat.id, eval(f'lang.noresults_msg_{choosenlang}'))
-    else:
-        bot.send_message(message.chat.id, eval(f'lang.rename_msg_{choosenlang}'))
-        bot.register_next_step_handler(message, rename)
-def rename(message):
-    name = message.text.replace(' ', '+')
-    pcresults = db.get_result(message.from_user.id)
-    pdf = f'https://www.politicalcompass.org/pdfcertificate?pname={name}&{pcresults}'
-    bot.send_document(message.chat.id, pdf , caption=eval(f'lang.pdf_msg_{choosenlang}'))
 
