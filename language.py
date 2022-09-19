@@ -2,26 +2,81 @@
 
 help_msg_en = 'Start Your Political Compass By Clicking The Button below 👇'
 help_msg_ar = 'اضغط على الزر بالاسفل لتقييم نظامك السياسي 👇'
-start_btn_en = 'Start 📝'
-start_btn_ar = 'ابدأ 📝'
+help_msg_ary = 'تكي على البطونة لي لتحت باش تقيم نظامك السياسي 👇'  
+
+start_btn_en = 'Start 🧭'
+start_btn_ar = 'ابدأ 🧭'
+start_btn_ary = 'بدا 🧭'  
+
 canceled_en = 'You Have Cancelled The Process'
-canceled_ar = 'لقد قمت بالغاء العملية'
+canceled_ar = 'غيرت رأيك ؟'
+canceled_ary = 'Safi 3la khatrk'
+
 starting_msg_en = 'Ladies and gentlemen, attack helicopters, welcome to a political orientation that will force you to abandon social constructs and find your true self! A journey in the right direction begins with the right compass'
 starting_msg_ar = 'سيداتي وسادتي والطائرات الهجومية, مرحبا بكم في توجيه سياسي سيجبركم على ترك الهياكل الاجتماعية والعثور على النفس الحقيقية! يبدأ الرحلة في الاتجاه الصحيح ببوصلة صحيحة'
+
 letsgo_btn_en = 'Let\'s Go 🚀'
 letsgo_btn_ar = 'لنذهب 🚀'
+
 ready_msg_en = 'Are You Ready?'
 ready_msg_ar = 'هل انت جاهز؟'
+
+
+chooselang_en = 'Choose your language'
+chooselang_ar = 'اختر لغتك'
+chooselang_ary = 'ختار اللغة'
+
+langchanged_en = 'Language changed to English'
+langchanged_ar = 'تم تغيير اللغة الى العربية'
+langchanged_ary = 'اللغة تبدلات لداريجة'
+
+wrnglanginput_en = 'Wrong Input'
+wrnglanginput_ar = 'خطأ'
+
 restart_btn_en = 'Restart 🔄'
 restart_btn_ar = 'اعادة 🔄'
+
 needhelp_msg_en = 'Please, use command /help'
 needhelp_msg_ar = 'الرجاء استخدام الامر /help'
+
+# commands
+helpcommand_en = 'Help!'
+helpcommand_ar = 'مساعدة!'
+helpcommand_ary = 'مساعدة!'
+
+startcommand_en = 'Start your political compass test'
+startcommand_ar = 'ابدأ اختبار نظامك السياسي'
+startcommand_ary = 'ابدأ اختبار نظامك السياسي'
+
+cancelcommand_en = 'Cancel the process'
+cancelcommand_ar = 'الغاء العملية'
+cancelcommand_ary = 'الغاء العملية'
+
+langcommand_en = 'Change your language'
+langcommand_ar = 'تغيير اللغة'
+langcommand_ary = 'تغيير اللغة'
+
+resultcommand_en = 'Get your result'
+resultcommand_ar = 'احصل على نتيجتك'
+resultcommand_ary = 'احصل على نتيجتك'
+
+renamecommand_en = 'Rename your certificate'
+renamecommand_ar = 'اعد تسمية شهادتك'
+renamecommand_ary = 'اعد تسمية شهادتك'
+
+helping_msg_en = 'This bot is a political compass test, it will help you find your political orientation. It is a simple test that will ask you a few questions and then give you a result. The result is not 100% accurate, but it will give you a general idea of your political orientation. The test is based on the political compass test, which you can find here: https://www.politicalcompass.org/test'
+helping_msg_ar = 'هذا البوت هو اختبار البوصلة السياسية, سيساعدك على ايجاد توجيهك السياسي. انه اختبار بسيط سيسألك عن بعض الاسئلة ثم يعطيك نتيجة. النتيجة ليست دقيقة 100٪, لكنها ستعطيك فكرة عامة عن توجيهك السياسي. الاختبار يعتمد على اختبار البوصلة السياسية, الذي يمكنك العثور عليه هنا: https://www.politicalcompass.org/test'
+
 journeycancel_msg_en = 'Cancel Your Journey By Using Command /cancel'
 journeycancel_msg_ar = 'الغي رحلتك باستخدام الامر /cancel'
+
+
 wronginput_en = 'Please, choose one of the options below 👇'
 wronginput_ar = 'الرجاء اختيار احد الخيارات بالاسفل 👇'
+
 question_en = 'Question'
 question_ar = 'السؤال'
+
 part1_msg_en = 'Part 1:  How you see the country and the world'
 part1_msg_ar = 'الجزء 1: كيف ترى البلد والعالم'
 
@@ -39,21 +94,28 @@ part5_msg_ar = 'الجزء 5: كيف ترى الدين'
 # Finally, a look at sex
 part6_msg_en = 'Part 6 Last one: A look at sex'
 part6_msg_ar = 'الجزء 6 الأخير: لمحة عن الجنس'
+
 lastq_msg_en = 'Last Question'
 lastq_msg_ar = 'السؤال الأخير'
+
 wait_msg_en = 'Wait Please ⏳'
 wait_msg_ar = 'انتظر من فضلك ⏳'
 
 s_disagree_en = 'Strongly Disagree'
 s_disagree_ar = 'معارض بشدة'
+
 disagree_en = 'Disagree'
 disagree_ar = 'معارض'
+
 s_agree_en = 'Strongly Agree'
 s_agree_ar = 'مؤيد بشدة'
+
 agree_en = 'Agree'
 agree_ar = 'مؤيد'
+
 elr_msg_en = 'Economic Left/Right'
 elr_msg_ar = 'اليسار/اليمين الاقتصادي'
+
 sla_msg_en = 'Social Libertarian/Authoritarian'
 sla_msg_ar = 'الحرية الاجتماعية/التطبيع'
 
@@ -62,17 +124,18 @@ urpc_msg_ar = 'نتائجك'
 
 chart_msg_en = 'Take a look at your chart'
 chart_msg_ar = 'انظر الى الرسم البياني الخاص بك'
+
 pdf_msg_en = 'Here is your certificate'
 pdf_msg_ar = 'هاهي شهادتك'
+
 link_msg_en = 'Here is your link'
 link_msg_ar = 'هاهو رابطك'
+
 tnks_msg_en = 'Thank you for using our bot! \n\nIf you want to restart, press the button below 👇'
 tnks_msg_ar = 'شكرا لاستخدامكم البوت! \n\nاذا اردت اعادة البدء, اضغط على الزر بالاسفل 👇'
 
-chooselang_en = 'Choose your language'
-chooselang_ar = 'اختر لغتك'
-wrnglanginput_en = 'Wrong Input'
-wrnglanginput_ar = 'خطأ'
+rename_msg_en = 'To rename your certificate, send me a new name'
+rename_msg_ar = 'لتغيير اسم شهادتك, ارسل لي اسم جديد'
 
 
 def_questions_ar = {
@@ -206,8 +269,4 @@ def_questions_en = {
     62:	"These days openness about sex has gone too far."
 }
 
-
-lang = "ar"
-variable = 'part1_msg'
-# print(eval(f"{variable}_{lang}"))
 
