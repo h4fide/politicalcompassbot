@@ -823,7 +823,7 @@ def finish(message):
         wait = bot.send_message(message.chat.id, eval(f'lang.wait_msg_{choosenlang}'))
         wait
         name = message.from_user.first_name
-        pcresults = pwp.results(pwp.format_answers(answers=db.format_db_answers(db.get_answers(message.from_user.id))))
+        pcresults = pwp.results(pwp.format_answers(answers=db.format_db_answers(message.from_user.id)))
         url = f'https://www.politicalcompass.org/analysis2?{pcresults}'
         image = f'https://www.politicalcompass.org/chart?{pcresults}'
         pdf = f'https://www.politicalcompass.org/pdfcertificate?pname={name}&{pcresults}'
@@ -837,18 +837,21 @@ def finish(message):
         db.insert_result(message.from_user.id, pcresults)
         bot.send_message(message.chat.id, eval(f'lang.tnks_msg_{choosenlang}'), reply_markup=markup)
 
-def my_resultes(message):    
-    name = message.from_user.first_name
-    pcresults = db.get_result(message.from_user.id)
-    url = f'https://www.politicalcompass.org/analysis2?{pcresults}'
-    image = f'https://www.politicalcompass.org/chart?{pcresults}'
-    pdf = f'https://www.politicalcompass.org/pdfcertificate?pname={name}&{pcresults}'
-    linkmsg = eval(f'lang.link_msg_{choosenlang}')
-    bot.send_message(message.chat.id, eval(f'lang.urpc_msg_{choosenlang}'))
-    bot.send_message(message.chat.id, f'{func_elr(message.from_user.id)} \n{pcresults.split("ec=")[1].split("&")[0]}\n{func_elr(message.from_user.id)} \n{pcresults.split("soc=")[1]}')
-    bot.send_photo(message.chat.id, image, caption=eval(f'lang.chart_msg_{choosenlang}')) 
-    bot.send_document(message.chat.id, pdf , caption=eval(f'lang.pdf_msg_{choosenlang}'))
-    bot.send_message(message.chat.id, f'{url}\n{linkmsg}')
+def my_resultes(message):  
+    if db.check_reslt(message.from_user.id) == False:
+        bot.send_message(message.chat.id, eval(f'lang.noresults_msg_{choosenlang}'))
+    else:  
+        name = message.from_user.first_name
+        pcresults = db.get_result(message.from_user.id)
+        url = f'https://www.politicalcompass.org/analysis2?{pcresults}'
+        image = f'https://www.politicalcompass.org/chart?{pcresults}'
+        pdf = f'https://www.politicalcompass.org/pdfcertificate?pname={name}&{pcresults}'
+        linkmsg = eval(f'lang.link_msg_{choosenlang}')
+        bot.send_message(message.chat.id, eval(f'lang.urpc_msg_{choosenlang}'))
+        bot.send_message(message.chat.id, f'{func_elr(message.from_user.id)} \n{pcresults.split("ec=")[1].split("&")[0]}\n{func_elr(message.from_user.id)} \n{pcresults.split("soc=")[1]}')
+        bot.send_photo(message.chat.id, image, caption=eval(f'lang.chart_msg_{choosenlang}')) 
+        bot.send_document(message.chat.id, pdf , caption=eval(f'lang.pdf_msg_{choosenlang}'))
+        bot.send_message(message.chat.id, f'{url}\n{linkmsg}')
 
 @bot.message_handler(commands=['myresult'])
 def myresult_c(message):
@@ -856,10 +859,14 @@ def myresult_c(message):
 
 @bot.message_handler(commands=['rename'])
 def rename_c(message):
-    bot.send_message(message.chat.id, eval(f'lang.rename_msg_{choosenlang}'))
-    bot.register_next_step_handler(message, rename)
+    if db.check_reslt(message.from_user.id) == False:
+        bot.send_message(message.chat.id, eval(f'lang.noresults_msg_{choosenlang}'))
+    else:
+        bot.send_message(message.chat.id, eval(f'lang.rename_msg_{choosenlang}'))
+        bot.register_next_step_handler(message, rename)
 def rename(message):
     name = message.text.replace(' ', '+')
     pcresults = db.get_result(message.from_user.id)
     pdf = f'https://www.politicalcompass.org/pdfcertificate?pname={name}&{pcresults}'
     bot.send_document(message.chat.id, pdf , caption=eval(f'lang.pdf_msg_{choosenlang}'))
+

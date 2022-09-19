@@ -64,3 +64,10 @@ def format_db_answers(userid):
     for i in range(1, 63):
         answers.append({i:get_answers(userid)[i-1]})
     return answers
+
+def check_reslt(userid):
+    c.execute('SELECT resultes FROM users WHERE userid = ?', (userid,))
+    if c.fetchone()[0] == 'None':
+        return False
+    else:
+        return True
