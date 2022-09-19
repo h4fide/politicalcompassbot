@@ -164,7 +164,7 @@ def cancel_message(message):
 @bot.message_handler(commands=['start'])
 def start_message(message):
     if db.usercheck(message.chat.id) == False:
-        db.add_user(message.chat.id, message.chat.first_name, message.chat.username, 'en', 'None')
+        db.add_user(message.chat.id, message.chat.first_name, message.chat.username, 'en', 'null')
         language_bot(message)
     else:
         global choosenlang
@@ -874,6 +874,6 @@ def finish(message):
         bot.send_photo(message.chat.id, image, caption=eval(f'lang.chart_msg_{choosenlang}')) 
         bot.send_document(message.chat.id, pdf , caption=eval(f'lang.pdf_msg_{choosenlang}'))
         bot.send_message(message.chat.id, f'{url}\n{linkmsg}')
-        db.insert_result(message.from_user.id, pcresults)
+        db.insert_result(userid=message.from_user.id, result=pcresults)
         bot.send_message(message.chat.id, eval(f'lang.tnks_msg_{choosenlang}'), reply_markup=markup)
 

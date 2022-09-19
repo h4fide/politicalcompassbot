@@ -44,7 +44,7 @@ def userlanguage(userid):
     return c.fetchone()[0]
 
 def insert_result(result, userid):
-    c.execute(f"UPDATE users SET resultes = ? WHERE userid = ?", (result, userid))
+    c.execute("UPDATE users SET resultes = ? WHERE userid = ?", (result, userid))
     conn.commit()
     
 def insert_answers(userid, answer: int, question: str):
@@ -67,7 +67,10 @@ def format_db_answers(userid):
 
 def check_reslt(userid):
     c.execute('SELECT resultes FROM users WHERE userid = ?', (userid,))
-    if c.fetchone()[0] == 'None':
+    if c.fetchone()[0] == 'null':
         return False
     else:
         return True
+
+# pcresults = 'ec=0.0&soc=4.36'
+# insert_result(userid=897588700, result=pcresults)
