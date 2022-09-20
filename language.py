@@ -9,7 +9,7 @@ start_btn_ar = 'ابدأ 🧭'
 start_btn_ary = 'بدا 🧭'  
 
 canceled_en = 'You Have Cancelled The Process'
-canceled_ar = 'غيرت رأيك ؟'
+canceled_ar = '🤷‍♂️ ?'
 canceled_ary = 'Safi 3la khatrk'
 
 starting_msg_en = 'Ladies and gentlemen, attack helicopters, welcome to a political orientation that will force you to abandon social constructs and find your true self! A journey in the right direction begins with the right compass'
@@ -26,9 +26,9 @@ chooselang_en = 'Choose your language'
 chooselang_ar = 'اختر لغتك'
 chooselang_ary = 'ختار اللغة'
 
-langchanged_en = 'Language changed to English'
-langchanged_ar = 'تم تغيير اللغة الى العربية'
-langchanged_ary = 'اللغة تبدلات لداريجة'
+langchanged_en = 'English '
+langchanged_ar = 'العربية'
+langchanged_ary = 'الداريجة'
 
 wrnglanginput_en = 'Wrong Input'
 wrnglanginput_ar = 'خطأ'
@@ -36,8 +36,8 @@ wrnglanginput_ar = 'خطأ'
 restart_btn_en = 'Restart 🔄'
 restart_btn_ar = 'اعادة 🔄'
 
-needhelp_msg_en = 'Please, use command /help'
-needhelp_msg_ar = 'الرجاء استخدام الامر /help'
+needhelp_msg_en = 'Use command /help'
+needhelp_msg_ar = 'استخدم الامر /help'
 
 # commands
 helpcommand_en = 'Help!'
