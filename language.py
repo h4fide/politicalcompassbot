@@ -8,9 +8,9 @@ start_btn_en = 'Start 🧭'
 start_btn_ar = 'ابدأ 🧭'
 start_btn_ary = 'بدا 🧭'  
 
-canceled_en = 'You Have Cancelled The Process'
-canceled_ar = '🤷‍♂️ ?'
-canceled_ary = 'Safi 3la khatrk'
+canceled_en = '🤷‍♂️'
+canceled_ar = '🤷‍♂️'
+canceled_ary = '🤷‍♂️'
 
 starting_msg_en = 'Ladies and gentlemen, attack helicopters, welcome to a political orientation that will force you to abandon social constructs and find your true self! A journey in the right direction begins with the right compass'
 starting_msg_ar = 'سيداتي وسادتي والطائرات الهجومية, مرحبا بكم في توجيه سياسي سيجبركم على ترك الهياكل الاجتماعية والعثور على النفس الحقيقية! يبدأ الرحلة في الاتجاه الصحيح ببوصلة صحيحة'
